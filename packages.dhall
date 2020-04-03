@@ -123,12 +123,6 @@ let additions =
 let upstream =
       https://github.com/purescript/package-sets/releases/download/psc-0.13.6-20200127/packages.dhall sha256:06a623f48c49ea1c7675fdf47f81ddb02ae274558e29f511efae1df99ea92fb8
 
--- let overrides =
---   { halogen =
---       upstream.halogen // { version = "v4.0.0" }
---   , halogen-vdom =
---       upstream.halogen-vdom // { version = "v4.0.0" }
---   }
 let overrides = {=}
 
 let additions = 
@@ -170,6 +164,22 @@ let additions =
             ]
             , repo = "https://github.com/athanclark/purescript-thermite-dom.git"
             , version = "v0.3.0"
+        }
+    , storable = 
+        { dependencies = 
+            [ "console"
+            , "effect"
+            , "foreign"
+            , "generics-rep"
+            , "proxy"
+            , "simple-json"
+            , "spec"
+            , "spec-quickcheck"
+            , "transformers"
+            , "web-storage"
+            ]
+            , repo = "https://github.com/GoNZooo/purescript-storable/"
+            , version = "v0.0.6"
         }
     }
 

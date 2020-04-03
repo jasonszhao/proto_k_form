@@ -1,10 +1,38 @@
 ## todo: 
 
+
 Functionality: 
 [ ] feature: comments syntax
+[ ] Load sample code (while still not creating a new buffer)
+[x] Bug: accept whitespace at beginning of input
+[ ] Bug: 
+Input:
+(= r0 [-0.08843 ± 0.00524])
+(= tau (/ 1 r0))
+Output: 
+[-0.089 ± 0.005] (NaN%)
+[NaN ± NaN] (5.0%)
+
 
 Design: 
 [ ] syntax highlighting
+[ ] show results with scientific notation
+[ ] align digits of results
+[ ] if variable values are shown in a separate section, show them with variable names
+[ ] use aesthetic words for random file names. example: https://www.buzzfeed.com/danieldalton/bob-ombinate
+
+Technical:
+-- Project: Do I need to keep local state, or should I lift it? 
+
 
 Other:
-[ ] provide a way to take comments (netlify forms)
+[x] provide a way to take comments (netlify forms)
+[ ] documentation. 
+[ ] how to use with (Xe)LaTeX 
+
+
+## Other notes
+
+Halogen 5, which is currently on pre-release
+
+https://en.wikipedia.org/wiki/Propagation_of_uncertainty#Ratios

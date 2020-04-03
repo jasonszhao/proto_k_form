@@ -7,9 +7,12 @@
         <title>Uncertainty Calculator</title>
         <meta name="description" content="" />
         <meta name="author" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <link rel="stylesheet" href="./node_modules/tachyons/css/tachyons.min.css" />
+        <link rel="stylesheet" href="./styles.css" />
     </head>
+
 
     <body class="sans-serif">
         <!-- Header -->
@@ -18,7 +21,7 @@
         </header>
 
         <!-- Main interactive area -->
-        <div class="-debug-grid flex-l flex-row-l">
+        <div id="app" class="-debug-grid flex-l flex-row-l">
             <!-- Editor -->
             <div class="w-60-l pa4-l">
                 <a href class="tr pa2 db mr3">Create New</a>
@@ -50,7 +53,9 @@
                 <div href class="pa2 db tr mr3 tc-l b normal-l">Saved History</div>
 
                 <div class="ba mh4" style="line-height: 1.5;">
-                    <div class="pa2 bb pointer bg-light-gray flex"><span class="flex-grow-1">(Feb. 19, 2020) X-ray Cryptophrantic-Zoolography</span><span>(editing)</span></div>
+                    <div class="pa2 bb pointer bg-light-gray flex">
+                        <span class="flex-grow-1">(Feb. 19, 2020) X-ray Cryptophrantic-Zoolography</span><span>(editing)</span>
+                    </div>
                     <div class="pa2 pointer">Diffraction and Interference</div>
                 </div>
             </div>
@@ -58,121 +63,27 @@
 
         <!-- Explanation -->
         <article class="pa4 ml-auto-l w-40-l">
-            <h2 class="h2">How this works</h2>
+            <!-- <h2 class="h2">How this works</h2>
             <p class="measure">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
                 minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
                 reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
                 culpa qui officia deserunt mollit anim id est laborum.
+            </p> -->
+
+            <h2 class="h2">What?</h2>
+            <p>
+                Attempts to propagate error.
             </p>
+            <p>
+                S-Expressions. Supports <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>^</code>, <code>sin</code>,
+                <code>cos</code>, and <code>tan</code> as operators. Values can be expressed as <code>314e-2</code> or <code>[3.5 +- .3]</code>.
+            </p>
+            <p>More documentation coming.</p>
+
+            <p class="mt5">Leave comments <a href="/comments.html">here</a>.</p>
+
+            <!-- Comments -->
         </article>
     </body>
-
-    <style>
-        html {
-            --kenyon-purple: #4b2e84;
-        }
-        .bg-purple {
-            background-color: var(--kenyon-purple);
-        }
-        .purple {
-            color: var(--kenyon-purple);
-        }
-        * {
-            /* border: 1px solid gold; */
-            box-sizing: border-box;
-        }
-
-        /* 
-          //Generated from Sass: 
-
-          $kenyon-purple: #4b2e84;
-         
-          @for $shade from 1 to 9 {
-            $fraction: ($shade - 5) * 10 * 2;
-            $color: if($fraction > 0, 
-              lighten($kenyon-purple, $fraction),
-              darken($kenyon-purple, -$fraction));
-              
-            .purple-#{$shade * 10} {
-              color: $color;
-            }
-            .bg-purple-#{$shade * 10} {
-              background-color: $color;
-            }
-          }
-          */
-
-        .purple-10 {
-            color: black;
-        }
-
-        .bg-purple-10 {
-            background-color: black;
-        }
-
-        .purple-20 {
-            color: black;
-        }
-
-        .bg-purple-20 {
-            background-color: black;
-        }
-
-        .purple-30 {
-            color: black;
-        }
-
-        .bg-purple-30 {
-            background-color: black;
-        }
-
-        .purple-40 {
-            color: #201438;
-        }
-
-        .bg-purple-40 {
-            background-color: #201438;
-        }
-
-        .purple-50 {
-            color: #4b2e84;
-        }
-
-        .bg-purple-50 {
-            background-color: #4b2e84;
-        }
-
-        .purple-60 {
-            color: #7a54c4;
-        }
-
-        .bg-purple-60 {
-            background-color: #7a54c4;
-        }
-
-        .purple-70 {
-            color: #b5a0de;
-        }
-
-        .bg-purple-70 {
-            background-color: #b5a0de;
-        }
-
-        .purple-80 {
-            color: #f0ecf8;
-        }
-
-        .bg-purple-80 {
-            background-color: #f0ecf8;
-        }
-
-        .purple-90 {
-            color: white;
-        }
-
-        .bg-purple-90 {
-            background-color: white;
-        }
-    </style>
 </html>

@@ -9,12 +9,17 @@ import Data.List (List, fromFoldable, intercalate, (:))
 import Data.Maybe (Maybe(..))
 import Data.Number (fromString)
 import Data.String.Yarn (fromChars)
-import Prelude ((*), otherwise, class Eq, class Ord, class Show, Unit, bind, discard, map, pure, show, unit, void, ($), (*>), (<$>), (<*), (<>), (==), (||))
+import Prelude ((#), (*), (/), otherwise, class Eq, class Ord, class Show, Unit, bind, discard, map, pure, show, unit, void, ($), (*>), (<$>), (<*), (<>), (==), (||))
 import Text.Parsing.StringParser (ParseError, Parser, runParser, fail, try)
 import Text.Parsing.StringParser.CodePoints (regex, satisfy, string)
 import Text.Parsing.StringParser.CodeUnits (char)
 import Text.Parsing.StringParser.Combinators (fix, many, many1, option, choice)
 import Data.String (toLower)
+
+import Math
+
+
+-- last got what I needed from http://jakewheat.github.io/intro_to_parsing/
 
 data Operator
   = Add
@@ -185,7 +190,7 @@ command =
       <* whitespace
 
 commands :: Parser Commands
-commands = many command
+commands = whitespace *> many command
 
 parse :: String -> Either ParseError Commands
 parse c = (runParser commands) $ toLower c
@@ -197,14 +202,30 @@ shownArgs args = map show args
 showArgs :: List Expression -> String
 showArgs args = intercalate " " (shownArgs args)
 
+toOneSigFig :: Number -> String
+toOneSigFig x = 
+  let tail = pow 10.0 $ floor $ log x / ln10
+  in (floor $ x / tail) # (*) tail # show
+
+roundedToUncertainty :: Number -> Number -> String
+roundedToUncertainty v e = 
+  let tail = pow 10.0 $ floor $ log e / ln10
+  in (floor $ v / tail) # (*) tail # show 
+
+
+kenyonForm :: Number -> Number -> String 
+kenyonForm v e = 
+  let relE = 100.0 * e / v
+      in "[" <> roundedToUncertainty v e <> " ± " <> toOneSigFig e <> "] (" <> toOneSigFig relE <> "%)"
+
+
 instance showExpression :: Show Expression where
   show (Var x) = show x
   show (Exec o args) = "(" <> (show o) <> " " <> (showArgs args) <> ")"
   show (Quantity v e)
     | e == 0.0 = show v
-    | otherwise = 
-      let relE = 100.0 * v * e
-      in "[" <> show v <> " ± " <> show e <> "] (" <> show relE <> "%)"
+    | otherwise = kenyonForm v e 
+      
 
 instance showOperator :: Show Operator where
   show Add = "+"

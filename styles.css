@@ -1,0 +1,106 @@
+        html {
+            --kenyon-purple: #4b2e84;
+        }
+        .bg-purple {
+            background-color: var(--kenyon-purple);
+        }
+        .purple {
+            color: var(--kenyon-purple);
+        }
+        * {
+            /* border: 1px solid gold; */
+            box-sizing: border-box;
+        }
+
+        /* 
+          //Generated from Sass: 
+
+          $kenyon-purple: #4b2e84;
+         
+          @for $shade from 1 to 9 {
+            $fraction: ($shade - 5) * 10 * 2;
+            $color: if($fraction > 0, 
+              lighten($kenyon-purple, $fraction),
+              darken($kenyon-purple, -$fraction));
+              
+            .purple-#{$shade * 10} {
+              color: $color;
+            }
+            .bg-purple-#{$shade * 10} {
+              background-color: $color;
+            }
+          }
+          */
+
+        .purple-10 {
+            color: black;
+        }
+
+        .bg-purple-10 {
+            background-color: black;
+        }
+
+        .purple-20 {
+            color: black;
+        }
+
+        .bg-purple-20 {
+            background-color: black;
+        }
+
+        .purple-30 {
+            color: black;
+        }
+
+        .bg-purple-30 {
+            background-color: black;
+        }
+
+        .purple-40 {
+            color: #201438;
+        }
+
+        .bg-purple-40 {
+            background-color: #201438;
+        }
+
+        .purple-50 {
+            color: #4b2e84;
+        }
+
+        .bg-purple-50 {
+            background-color: #4b2e84;
+        }
+
+        .purple-60 {
+            color: #7a54c4;
+        }
+
+        .bg-purple-60 {
+            background-color: #7a54c4;
+        }
+
+        .purple-70 {
+            color: #b5a0de;
+        }
+
+        .bg-purple-70 {
+            background-color: #b5a0de;
+        }
+
+        .purple-80 {
+            color: #f0ecf8;
+        }
+
+        .bg-purple-80 {
+            background-color: #f0ecf8;
+        }
+
+        .purple-90 {
+            color: white;
+        }
+
+        .bg-purple-90 {
+            background-color: white;
+        }
+    

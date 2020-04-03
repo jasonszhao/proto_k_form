@@ -1,29 +1,47 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" data-framework="purescript">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <style>
-    html, body {
-      min-height: 100vh;
-      margin: 0;
-    }
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <style>
+            html,
+            body {
+                min-height: 100vh;
+                margin: 0;
+            }
 
-    body {
-      padding: 1rem;
-    }
+            body {
+                padding: 1rem;
+            }
 
-    .mono {
-      font-family: monospace;
-    }
-  </style>
-</head>
+            .mono {
+                font-family: monospace;
+            }
+        </style>
+        <title>Uncertainty Calculator</title>
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<body>
-  <div id="app"></div>
-  <hr/>
-  <div style="bottom: 0" class="mono">
-    Yea, the instructions are shitty. Contact: zhao3@. Last updated Feb. 4, 2020. <a href="https://github.com/jasonszhao/proto_k_form">Code</a>.
-  </div>
-  <script src="./index.js"></script>
-</body>
+        <link rel="stylesheet" href="./node_modules/tachyons/css/tachyons.min.css" />
+        <link rel="stylesheet" href="./styles.css" />
+    </head>
+
+    <body class="sans-serif">
+
+        <!-- Header -->
+        <header class="pa4">
+            <h1 class="h1 ma0 sans-serif">Uncertainty Calculator</h1>
+        </header>
+
+        <!-- Main interactive area -->
+        <div id="app"></div>
+
+
+        <!-- <hr />
+        <div style="bottom: 0" class="mono">
+            Yea, the instructions are shitty. Contact: zhao3@. Last updated Feb. 4, 2020.
+            <a href="https://github.com/jasonszhao/proto_k_form">Code</a>.
+        </div> -->
+        <script src="./index.js"></script>
+    </body>
 </html>

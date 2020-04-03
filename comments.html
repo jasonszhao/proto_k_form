@@ -1,0 +1,68 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+
+        <title>Comments | Uncertainty Calculator</title>
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link rel="stylesheet" href="./node_modules/tachyons/css/tachyons.min.css" />
+    </head>
+
+    <body class="sans-serif">
+        <div class="pa4 absolute-l">
+            <a href="/">← return to app</a>
+        </div>
+        <div>
+            <div class="flex-l flex-row-l items-center-l">
+                <div class="pa4 center ma0 measure mt4 relative">
+                    <div id="success" class="green">I've gotten your comment!</div>
+                    <h2 class="h2">Comments</h2>
+                    <p>
+                        If you run into bugs, would like to suggest a feature or small tweak, or tell me how much you think this sucks or is cool, let
+                        me know. Leave your contact info if you want a response.
+                    </p>
+                    <form name="comments" data-netlify="true" action="/comments.html#success">
+                        <textarea name="message" style="width: 100%;" class="b--black bw1" rows="5"></textarea>
+
+                        <p>
+                            <button
+                                class="f6 dim pv2 ph3 mb2 dib bg-white b--none pointer hover-dark-green"
+                                style="margin-left: -1rem;"
+                                type="submit"
+                            >
+                                <span class="b">Send</span>
+                            </button>
+                        </p>
+                    </form>
+                </div>
+
+                <!-- Pretty Drawing -->
+                <div class="mt6 center mw6 pa4 vh-100 flex-grow-1 -mw-none-l ma0-l pa4-l flex-l flex-column-l justify-center-l items-center-l">
+                    <a
+                        href="https://www.biodiversitylibrary.org/page/1266161#page/109/mode/1up"
+                        style="display: block; max-width: initial; height: calc(100% - 1.5em);"
+                        class="flex-shrink-1 flex-grow-1"
+                    >
+                        <img src="/lactarius rufus.jpg" class="center" style="width: auto; max-width: 100%; height: 100%" />
+                    </a>
+
+                    <p class="gray small tc flex-grow-0 flex-shrink-0">Here's a drawing of <em>Lactarius rufus</em>.</p>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <style>
+
+        #success {
+            visibility: hidden;
+            position: absolute;
+            top: -1em;
+        }
+        #success:target {
+            visibility: visible;
+        }
+    </style>
+</html>

@@ -1,2 +1,3 @@
-npx parcel build index.html && netlify deploy --dir=dist --prod
+npx parcel build *.html \
+    && netlify deploy --dir=dist --prod
 
