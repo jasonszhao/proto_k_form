@@ -12,6 +12,14 @@
             box-sizing: border-box;
         }
 
+        a:disabled, a[disabled="true"] {
+            pointer-events: none;
+            cursor: default;
+
+            opacity: 60%;
+        }
+
+
         /* 
           //Generated from Sass: 
 

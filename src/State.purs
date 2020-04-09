@@ -19,16 +19,16 @@ import Data.Newtype
 
 ----------- State definition and associated functions ----------------
 type State
-  = { current :: File
+  = { current :: CurrentFile
     , files :: Array SavedFile
     }
 
 -- Invariant: if the current file is not empty, then it should be saved in the files list
 
-type File
-  = { text :: Maybe String
-    , name :: Maybe String
-    }
+type CurrentFile
+  = Maybe ({ text :: String
+    , name :: String
+    })
 
 type SavedFile  -- is there a way to lift record fields out of Monads?
   = { text :: String
@@ -36,16 +36,14 @@ type SavedFile  -- is there a way to lift record fields out of Monads?
     }
 
 blankState :: State
-blankState = {current: {text: Nothing, name: Nothing }, files: [] }
+blankState = {current: Nothing, files: [] }
 initialState :: State
 initialState =
   { current:
-    { text:
-      Just
-        """(= x [3 +/- 0.1])
+    Just { text: """(= x [3 +/- 0.1])
 (* 2 x)
 (/ (* (cos 20) (tan 20)) (sin 20))"""
-    , name: Just "(Feb. 19, 2020) X-ray Cryptophrantic-Zoolography"
+    , name:  "(Feb. 19, 2020) X-ray Cryptophrantic-Zoolography"
     }
   , files:
     [ { name: "Diffraction and Interference", text: "" }
@@ -53,9 +51,9 @@ initialState =
   }
 
 
-isFileBlank :: File -> Boolean
-isFileBlank { text: Just x } | length x > 0 = true
-isFileBlank _                               = false
+-- isFileBlank :: CurrentFile -> Boolean
+-- isFileBlank Just { text: Just x } | length x > 0 = true
+-- isFileBlank _                               = false
 
 
 
@@ -83,7 +81,7 @@ persist state = do
   w <- window
   s <- localStorage w
   setItem key (show state) s
-  log $ "persisted: " <> (show state)
+  -- log $ "persisted: " <> (show state)
   pure unit
 
 readFromStore :: Effect (Maybe SavedState)

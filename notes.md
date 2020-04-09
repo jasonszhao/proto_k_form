@@ -14,6 +14,15 @@ Output:
 [NaN ± NaN] (5.0%)
 
 
+[x] bug: "create New" does everythign right, expce=t that the textarea contents are still the old ones. TextArea.innerHTML is correct.
+    - happens: create new. type. switch.
+    - happens: <start> type. switch. 
+    - doesn't happen: <start> load any file. switch any file. 
+
+    - happens even when halogen updates are turned off. 
+    - Solution: Set the textarea contents with .value, rather than innerHTML
+
+
 Design: 
 [ ] syntax highlighting
 [ ] show results with scientific notation

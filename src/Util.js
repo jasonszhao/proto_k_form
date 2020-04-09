@@ -40,3 +40,11 @@ exports.copyTextToClipboard = function (text) {
 }
 
 // end copied from
+
+
+// yuck, but purescript is really buggy
+exports.eval = function(jsCode) {
+    eval(jsCode)
+    console.log("Eval'ed: ", jsCode)
+    return () => {}
+}
